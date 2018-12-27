@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block css %}{% endblock %}
+    <title>{% block title %}Title{% endblock %}</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark cyan darken-1">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'app:index' %}">Zhihu</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicNav" aria-controls="basicNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="basicNav">
+                <ul class="navbar-nav mr-2">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Topic</a>
+                    </li>
+                </ul>
+                <form class="form-inline active-cyan-4">
+                    <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                </form>
+            </div>
+            <div class="user-menu">
+                <div class="menu-icon">
+                    <a href="#">
+                        <i class="far fa-bell"></i>
+                    </a>
+                </div>
+                <div class="menu-icon">
+                    <a href="#">
+                        <i class="far fa-comments"></i>
+                    </a>
+                </div>
+                <div class="menu-icon">
+                    <a href="#">
+                        <i class="far fa-user-circle"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="top">
+        <button class="btn top-btn cyan darken-1">
+            <i class="fa fa-arrow-up"></i>
+        </button>
+    </div>
+    {% block main %}
+        {{ content }}
+    {% endblock %}
+</body>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/mdb.min.js' %}"></script>
+<script src="{% static 'js/base.js' %}"></script>
+{% block js %}{% endblock %}
+</html>
